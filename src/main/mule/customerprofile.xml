@@ -122,262 +122,48 @@ output application/json
         </error-handler>
     </flow>
     <flow name="put:\customers\(customerid)\addresses\(addressid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-                <ee:set-variable variableName="addressid">attributes.uriParams.addressid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  addressId: 1,
-  "type ": "home",
-  number: 1234,
-  street: "blah blah St",
-  unit: "1 a",
-  city: "Somewhere",
-  state: "WV",
-  zipCode: "12345"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="3450c043-c1d5-413a-8d44-81299f716247" name="put-address-flow"/>
     </flow>
     <flow name="put:\customers\(customerid)\contacts\(contactid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-                <ee:set-variable variableName="contactid">attributes.uriParams.contactid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  contactId: 1,
-  "type": "email",
-  value: "bfe@sample.com",
-  preferred: "true"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="ad9fa89d-0dc1-4d5d-8f77-1cf2fe413cf1" name="put-contact-flow"/>
     </flow>
-    <flow name="put:\customers\(customerid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  customerId: 1,
-  firstName: "Scott",
-  lastName: "Morris",
-  dob: "06/21/1980",
-  gender: "M",
-  title: "Manager"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+	<flow name="put:\customers\(customerid):customerprofile-config">
+		<flow-ref doc:name="Flow Reference" doc:id="5fe95def-eedd-4de5-9cb8-318b99ea89c3" name="put-customer-flow"/>
     </flow>
     <flow name="delete:\customers\(customerid)\addresses\(addressid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-                <ee:set-variable variableName="addressid">attributes.uriParams.addressid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  message: "Customer's address deleted successfully!"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="8f640ed2-2421-4574-a4f3-becedcc4e69e" name="delete-address-flow"/>
     </flow>
     <flow name="delete:\customers\(customerid)\contacts\(contactid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-                <ee:set-variable variableName="contactid">attributes.uriParams.contactid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  message: "Contact deleted"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="c708d9b4-2471-45f2-8e99-f923488c91b5" name="delete-contact-flow"/>
     </flow>
     <flow name="delete:\customers\(customerid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  message: "Customer deleted"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="0424e2ff-e018-49d1-96fd-419377797097" name="delete-customer-flow"/>
     </flow>
     <flow name="get:\customers\(customerid)\addresses:customerprofile-config">
 		<flow-ref doc:name="Flow Reference" doc:id="9e0ff1d6-9093-446c-8ee9-faddbae0b2c8" name="get-addresses-flow"/>
     </flow>
     <flow name="get:\customers\(customerid)\contacts:customerprofile-config">
-		<flow-ref doc:name="Flow Reference" doc:id="9e1d894f-c74f-456f-af8f-4f98863838e1" name="get-customer-withid-flow"/>
+		<flow-ref doc:name="Flow Reference" doc:id="9e1d894f-c74f-456f-af8f-4f98863838e1" name="get-contacts-flow"/>
     </flow>
     <flow name="get:\customers:customerprofile-config">
 		<flow-ref doc:name="Flow Reference" doc:id="d711d0a6-8740-4548-b530-2dafb0181aa6" name="get-customers-flow"/>
     </flow>
     <flow name="get:\customers\(customerid)\addresses\(addressid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-                <ee:set-variable variableName="addressid">attributes.uriParams.addressid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  addressId: 1,
-  "type ": "home",
-  number: 1234,
-  street: "blah blah St",
-  unit: "1 a",
-  city: "Somewhere",
-  state: "WV",
-  zipCode: "12345"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="79018e8b-59ad-47ac-a586-af111e04d6b1" name="get-address-withid-flow"/>
     </flow>
     <flow name="get:\customers\(customerid)\contacts\(contactid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-                <ee:set-variable variableName="contactid">attributes.uriParams.contactid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  contactId: 1,
-  "type": "email",
-  value: "bfe@sample.com",
-  preferred: "true"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="ab17753f-9f11-47d2-96ee-95577b20aa84" name="get-contact-withid-flow"/>
     </flow>
     <flow name="get:\customers\(customerid):customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  customerId: 1,
-  firstName: "Scott",
-  lastName: "Morris",
-  dob: "06/21/1980",
-  gender: "M",
-  title: "Manager"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="3791634a-99e7-47fd-93c5-8506568d2f6e" name="get-customer-withid-flow"/>
     </flow>
     <flow name="post:\customers\(customerid)\addresses:customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  addressId: 1,
-  "type ": "home",
-  number: 1234,
-  street: "blah blah St",
-  unit: "1 a",
-  city: "Somewhere",
-  state: "WV",
-  zipCode: "12345"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="64ae57ff-0680-4b7c-82ac-9efb9bbad0be" name="post-address-flow"/>
     </flow>
     <flow name="post:\customers\(customerid)\contacts:customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
-            <ee:variables>
-                <ee:set-variable variableName="customerid">attributes.uriParams.customerid</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  contactId: 1,
-  "type": "email",
-  value: "bfe@sample.com",
-  preferred: "true"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="7b2d8ca0-569c-484a-accd-85779cf3052d" name="post-contact-flow"/>
     </flow>
     <flow name="post:\customers:customerprofile-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  customerId: 1,
-  firstName: "Scott",
-  lastName: "Morris",
-  dob: "06/21/1980",
-  gender: "M",
-  title: "Manager"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="9139c134-b46e-43d9-bff5-77acae7c7c35" name="post-customer-flow"/>
     </flow>
 </mule>

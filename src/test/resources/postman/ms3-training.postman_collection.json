@@ -1,0 +1,512 @@
+{
+	"info": {
+		"_postman_id": "5093a2e1-9974-4f7b-aa33-fe6db196e7a7",
+		"name": "ms3-training",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET all customers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Requester-ID",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"airline\": \"Delta\",\n  \"flightCode\": \"ER0945\",\n  \"fromAirportCode\": \"CLE\",\n  \"toAirportCode\": \"CLE\",\n  \"departureDate\": \"2016/12/20\",\n  \"emptySeats\": 20,\n  \"totalSeats\": 200,\n  \"price\": 399,\n  \"origin\": \"ORD\",\n  \"planeType\": \"Boeing 747\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET customer with ID=4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Requester-ID",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD new customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"firstName\":\"Drew\",\n    \"lastName\":\"Riley\",\n    \"dob\": \"1962/10/23\",\n    \"gender\":\"M\",\n    \"title\":\"Administrator\"\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE customer ID=14",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"firstName\":\"Barry\",\n    \"lastName\":\"Starr\",\n    \"dob\": \"1982/12/12\",\n    \"gender\":\"M\",\n    \"title\":\"CEO\"\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE custore ID=13",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET addresses with CUSTOMERID=3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Requester-ID",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"airline\": \"Delta\",\n  \"flightCode\": \"ER0945\",\n  \"fromAirportCode\": \"CLE\",\n  \"toAirportCode\": \"CLE\",\n  \"departureDate\": \"2016/12/20\",\n  \"emptySeats\": 20,\n  \"totalSeats\": 200,\n  \"price\": 399,\n  \"origin\": \"ORD\",\n  \"planeType\": \"Boeing 747\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/3/addresses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"3",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET address with ID=5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Requester-ID",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"airline\": \"Delta\",\n  \"flightCode\": \"ER0945\",\n  \"fromAirportCode\": \"CLE\",\n  \"toAirportCode\": \"CLE\",\n  \"departureDate\": \"2016/12/20\",\n  \"emptySeats\": 20,\n  \"totalSeats\": 200,\n  \"price\": 399,\n  \"origin\": \"ORD\",\n  \"planeType\": \"Boeing 747\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/4/addresses/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"4",
+						"addresses",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD new address with CUSTOMERID=6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Requester-ID",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"Temp\",\n\t\"number\": \"345\",\n\t\"street\": \"Newleaf\",\n\t\"unit\": \"A-4\",\n\t\"city\": \"Atlanta\",\n\t\"state\": \"GA\",\n\t\"zipcode\": \"30028\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/6/addresses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"6",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE address ID=6",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Requester-ID",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"Home\",\n\t\"number\": \"2020\",\n\t\"street\": \"Avondale\",\n\t\"unit\": \"29\",\n\t\"city\": \"Atlanta\",\n\t\"state\": \"GA\",\n\t\"zipcode\": \"30024\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/6/addresses/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"6",
+						"addresses",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE address with ID=8",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/6/addresses/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"6",
+						"addresses",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET contacts with CUSTOMERID=3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Requester-ID",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"airline\": \"Delta\",\n  \"flightCode\": \"ER0945\",\n  \"fromAirportCode\": \"CLE\",\n  \"toAirportCode\": \"CLE\",\n  \"departureDate\": \"2016/12/20\",\n  \"emptySeats\": 20,\n  \"totalSeats\": 200,\n  \"price\": 399,\n  \"origin\": \"ORD\",\n  \"planeType\": \"Boeing 747\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/3/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"3",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET contacts with ID=2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Requester-ID",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/3/contacts/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"3",
+						"contacts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD new contact with CUSTOMERID=6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"home\",\n\t\"value\": \"sadfg@gmail.com\",\n\t\"preferred\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/6/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"6",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE contact with ID=4",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"office\",\n\t\"value\": \"zoomcvbn@gmail.com\",\n\t\"preferred\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/6/contacts/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"6",
+						"contacts",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE contact with ID=6",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/6/contacts/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"6",
+						"contacts",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

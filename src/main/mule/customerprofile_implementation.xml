@@ -33,15 +33,16 @@ payload map {
 		<db:insert doc:name="Insert" doc:id="681a9ba9-e2af-4498-b31b-7311f7599c63" config-ref="Database_Config">
 			<db:sql >INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, DOB, GENDER, TITLE)
 VALUES
-	(:fname, :lname, :dat, :gen, null);</db:sql>
+	(:fname, :lname, :dat, :gen, :title);</db:sql>
 			<db:input-parameters ><![CDATA[#[{
 	'fname':payload.firstName,
 	'lname':payload.lastName,
 	'dat':payload.dob,
-	'gen':payload.gender
+	'gen':payload.gender,
+	'title' :payload.title
 }]]]></db:input-parameters>
 		</db:insert>
-		<set-payload value='#["Customer successfully added"]' doc:name="Set Payload" doc:id="4e482286-a0c1-42aa-8426-d0bddc09aa3e" mimeType="application/json"/>
+		<set-payload value='{"message":"Customer successfully added"}' doc:name="Set Payload" doc:id="4e482286-a0c1-42aa-8426-d0bddc09aa3e" mimeType="application/json"/>
 		<logger level="INFO" doc:name="Logger" doc:id="5121e9e2-c466-4e4d-acb0-584255a3b54d" message="finished flow post-customer-flow : #[payload]"/>
 	</flow>
 	<flow name="delete-customer-flow" doc:id="d334f2ab-b30c-4f12-8eef-181c416c3d83" >
@@ -50,7 +51,7 @@ VALUES
 			<db:sql >delete from CUSTOMER where ID= :id</db:sql>
 			<db:input-parameters ><![CDATA[#['id' : attributes.uriParams.customerid]]]></db:input-parameters>
 		</db:delete>
-		<set-payload value='#["Customer deleted"]' doc:name="Set Payload" doc:id="4db64b5b-775d-4b81-878d-203bdb7d06dd" />
+		<set-payload value='{"message" : "Customer deleted"}' doc:name="Set Payload" doc:id="4db64b5b-775d-4b81-878d-203bdb7d06dd" />
 		<logger level="INFO" doc:name="Logger" doc:id="08f8df8f-9854-42b5-96e7-abf36f62dd52" message="finished flow delete-customer-flow : #[payload]"/>
 	</flow>
 	<flow name="put-customer-flow" doc:id="be6af876-a6c1-4458-9f72-de81b1fba499" >
@@ -123,8 +124,7 @@ payload map {
 		<db:select doc:name="Select" doc:id="3756c7bd-7c4a-4b7a-ad3a-6c49d1cde90b" config-ref="Database_Config">
 			<db:sql >select * from ADDRESS
 where CUSTOMERID= :id</db:sql>
-			<db:input-parameters ><![CDATA[#[{
-	'id' : attributes.uriParams.customerid}]]]></db:input-parameters>
+			<db:input-parameters ><![CDATA[#['id' : attributes.uriParams.customerid]]]></db:input-parameters>
 		</db:select>
 		<ee:transform doc:name="Transform Message" doc:id="e74931e1-f6a9-4ece-b4ea-a332eb38e16c" >
 			<ee:message >
@@ -133,11 +133,14 @@ output application/json
 ---
 payload map {
 	id : $.ID,
-	firstName: $.FIRSTNAME,
-	lastName: $.LASTNAME,
-	dateOfBirth: $.DOB,
-	gender: $.GENDER,
-	title: $.TITLE
+	customerId : $.CUSTOMERID,
+	'type': $.TYPE,
+	number: $.NUMBER,
+	street: $.STREET,
+	unit: $.UNIT,
+	city: $.CITY,
+	state: $.STATE,
+	zip: $.ZIPCODE
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
@@ -150,13 +153,13 @@ payload map {
 VALUES (:cid, :type, :num, :street, :unit, :city, :state, :zip)</db:sql>
 			<db:input-parameters ><![CDATA[#[{
 	'cid': attributes.uriParams.customerid,
-	'type':payload.typ,
+	'type':payload.'type',
 	'num':payload.number,
 	'street':payload.street,
 	'unit' : payload.unit,
 	'city' : payload.city,
 	'state' : payload.state,
-	'zip' :payload.zipcode
+	'zip' : payload.zipcode
 }]]]></db:input-parameters>
 		</db:insert>
 		<set-payload value="{&quot;message&quot;: &quot;Customer's address successfully added&quot;}" doc:name="Set Payload" doc:id="c387cf6d-16fb-4185-b09d-8635c8821064" />
@@ -189,7 +192,7 @@ set TYPE= :type, NUMBER=:num, STREET= :street, UNIT= :unit, CITY= :city, STATE= 
 where ID= :aid</db:sql>
 					<db:input-parameters ><![CDATA[#[{
 	'aid': vars.updateAddressId,
-	'type':vars.updateAddressPayload.typ,
+	'type':vars.updateAddressPayload.'type',
 	'num':vars.updateAddressPayload.number,
 	'street':vars.updateAddressPayload.street,
 	'unit' : vars.updateAddressPayload.unit,
@@ -219,16 +222,16 @@ where ID= :aid</db:sql>
 						<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
-{
-	Id : payload.ID,
-	CustomerId: payload.CUSTOMERID,
-	Type: payload.TYPE,
-	Number: payload.NUMBER,
-	Street: payload.STREET,
-	Unit: payload.UNIT,
-	City: payload.CITY,
-	State: payload.STATE,
-	Zipcode: payload.ZIPCODE
+payload map {
+	id : $.ID,
+	customerId: $.CUSTOMERID,
+	'type': $.TYPE,
+	number: $.NUMBER,
+	street: $.STREET,
+	unit: $.UNIT,
+	city: $.CITY,
+	state: $.STATE,
+	zipcode: $.ZIPCODE
 }]]></ee:set-payload>
 					</ee:message>
 				</ee:transform>
@@ -270,9 +273,9 @@ VALUES
 	(:cid, :type, :value, :pref)</db:sql>
 			<db:input-parameters ><![CDATA[#[{
 	'cid': attributes.uriParams.customerid,
-	'type':payload.typ,
+	'type':payload.'type',
 	'value':payload.value,
-	'pref':payload.prefered
+	'pref':payload.preferred
 }]]]></db:input-parameters>
 		</db:insert>
 		<set-payload value="{&quot;message&quot;: &quot;Customer's contacts successfully added&quot;}" doc:name="Set Payload" doc:id="27fc23b5-3f93-4ba1-a727-4494daaf0eda" />
@@ -304,9 +307,10 @@ VALUES
 set TYPE=:type, VALUE=:value, PREFERRED=:pref
 where ID= :contactId</db:sql>
 					<db:input-parameters ><![CDATA[#[{
-	'type':vars.updateContactPayload.typ,
+	'contactId' : vars.updateContactId,
+	'type':vars.updateContactPayload.'type',
 	'value': vars.updateContactPayload.value,
-	'pref': vars.updateContactPayload.prefered
+	'pref': vars.updateContactPayload.preferred
 }]]]></db:input-parameters>
 				</db:update>
 				<set-payload value='{"message":"Contact updated successfully!!"}' doc:name="Set Payload" doc:id="4830dc15-9e52-4459-8495-07f0d206211d" />
