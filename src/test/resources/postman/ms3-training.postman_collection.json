@@ -11,24 +11,32 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Requester-ID",
-						"value": "123",
-						"type": "text",
-						"disabled": true
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"airline\": \"Delta\",\n  \"flightCode\": \"ER0945\",\n  \"fromAirportCode\": \"CLE\",\n  \"toAirportCode\": \"CLE\",\n  \"departureDate\": \"2016/12/20\",\n  \"emptySeats\": 20,\n  \"totalSeats\": 200,\n  \"price\": 399,\n  \"origin\": \"ORD\",\n  \"planeType\": \"Boeing 747\"\n}"
+					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers",
+					"raw": "http://{{host}}:8081/api/customers",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -45,6 +53,21 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -59,10 +82,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/4",
+					"raw": "http://{{host}}:8081/api/customers/4",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -90,10 +113,10 @@
 					"raw": "  {\n    \"firstName\":\"Drew\",\n    \"lastName\":\"Riley\",\n    \"dob\": \"1962/10/23\",\n    \"gender\":\"M\",\n    \"title\":\"Administrator\"\n  }"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers",
+					"raw": "http://{{host}}:8081/api/customers",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -107,6 +130,21 @@
 		{
 			"name": "UPDATE customer ID=14",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -120,10 +158,10 @@
 					"raw": "  {\n    \"firstName\":\"Barry\",\n    \"lastName\":\"Starr\",\n    \"dob\": \"1982/12/12\",\n    \"gender\":\"M\",\n    \"title\":\"CEO\"\n  }"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/14",
+					"raw": "http://{{host}}:8081/api/customers/14",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -136,8 +174,23 @@
 			"response": []
 		},
 		{
-			"name": "DELETE custore ID=13",
+			"name": "DELETE customer ID=13",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [
 					{
@@ -151,10 +204,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/13",
+					"raw": "http://{{host}}:8081/api/customers/13",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -172,24 +225,32 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Requester-ID",
-						"value": "123",
-						"type": "text",
-						"disabled": true
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"airline\": \"Delta\",\n  \"flightCode\": \"ER0945\",\n  \"fromAirportCode\": \"CLE\",\n  \"toAirportCode\": \"CLE\",\n  \"departureDate\": \"2016/12/20\",\n  \"emptySeats\": 20,\n  \"totalSeats\": 200,\n  \"price\": 399,\n  \"origin\": \"ORD\",\n  \"planeType\": \"Boeing 747\"\n}"
+					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/3/addresses",
+					"raw": "http://{{host}}:8081/api/customers/3/addresses",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -208,6 +269,21 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -219,13 +295,13 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"airline\": \"Delta\",\n  \"flightCode\": \"ER0945\",\n  \"fromAirportCode\": \"CLE\",\n  \"toAirportCode\": \"CLE\",\n  \"departureDate\": \"2016/12/20\",\n  \"emptySeats\": 20,\n  \"totalSeats\": 200,\n  \"price\": 399,\n  \"origin\": \"ORD\",\n  \"planeType\": \"Boeing 747\"\n}"
+					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/4/addresses/5",
+					"raw": "http://{{host}}:8081/api/customers/4/addresses/5",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -242,6 +318,21 @@
 		{
 			"name": "ADD new address with CUSTOMERID=6",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -261,10 +352,10 @@
 					"raw": "{\n\t\"type\": \"Temp\",\n\t\"number\": \"345\",\n\t\"street\": \"Newleaf\",\n\t\"unit\": \"A-4\",\n\t\"city\": \"Atlanta\",\n\t\"state\": \"GA\",\n\t\"zipcode\": \"30028\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/6/addresses",
+					"raw": "http://{{host}}:8081/api/customers/6/addresses",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -280,6 +371,21 @@
 		{
 			"name": "UPDATE address ID=6",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -299,10 +405,10 @@
 					"raw": "{\n\t\"type\": \"Home\",\n\t\"number\": \"2020\",\n\t\"street\": \"Avondale\",\n\t\"unit\": \"29\",\n\t\"city\": \"Atlanta\",\n\t\"state\": \"GA\",\n\t\"zipcode\": \"30024\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/6/addresses/6",
+					"raw": "http://{{host}}:8081/api/customers/6/addresses/6",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -319,6 +425,21 @@
 		{
 			"name": "DELETE address with ID=8",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"body": {
@@ -326,10 +447,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/6/addresses/8",
+					"raw": "http://{{host}}:8081/api/customers/6/addresses/8",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -349,6 +470,21 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -360,13 +496,13 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"airline\": \"Delta\",\n  \"flightCode\": \"ER0945\",\n  \"fromAirportCode\": \"CLE\",\n  \"toAirportCode\": \"CLE\",\n  \"departureDate\": \"2016/12/20\",\n  \"emptySeats\": 20,\n  \"totalSeats\": 200,\n  \"price\": 399,\n  \"origin\": \"ORD\",\n  \"planeType\": \"Boeing 747\"\n}"
+					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/3/contacts",
+					"raw": "http://{{host}}:8081/api/customers/3/contacts",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -385,6 +521,21 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -399,10 +550,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/3/contacts/2",
+					"raw": "http://{{host}}:8081/api/customers/3/contacts/2",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -419,6 +570,21 @@
 		{
 			"name": "ADD new contact with CUSTOMERID=6",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -432,10 +598,10 @@
 					"raw": "{\n\t\"type\": \"home\",\n\t\"value\": \"sadfg@gmail.com\",\n\t\"preferred\": true\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/6/contacts",
+					"raw": "http://{{host}}:8081/api/customers/6/contacts",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -451,6 +617,21 @@
 		{
 			"name": "UPDATE contact with ID=4",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -461,13 +642,13 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"type\": \"office\",\n\t\"value\": \"zoomcvbn@gmail.com\",\n\t\"preferred\": true\n}"
+					"raw": "{\n\t\"type\": \"office\",\n\t\"value\": \"zooyycvbn@gmail.com\",\n\t\"preferred\": true\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/6/contacts/4",
+					"raw": "http://{{host}}:8081/api/customers/6/contacts/4",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
@@ -484,6 +665,21 @@
 		{
 			"name": "DELETE contact with ID=6",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "training",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ms3",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"body": {
@@ -491,10 +687,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/customers/6/contacts/6",
+					"raw": "http://{{host}}:8081/api/customers/6/contacts/6",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
 					"port": "8081",
 					"path": [
